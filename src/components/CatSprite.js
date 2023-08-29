@@ -1,8 +1,58 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-export default function CatSprite() {
+export default function CatSprite({ step }) {
+ 
+  const motionType = useSelector((state) => state.motionType);
+  const message = useSelector((state) => state.message);
+  const aniket1 = useSelector((state) => state.currentStep);
+  
+  console.log('hghg',aniket1)
+ 
+
+let transformValue = "";
+let animationDuration = ""; 
+
+switch (motionType) {
+
+  case "CHANGE_STEP":
+    transformValue = `translateX(${step}px)` 
+    animationDuration = `4s`
+   
+    break;
+  case "TURN_DEGREES":
+    transformValue = `rotate(${step}deg)`;
+    break;
+  case "mousepointer":
+   
+    break;
+  case "random":
+   
+  animationDuration = `${aniket1}s`;
+    break;
+  case "SHOW_MSG":
+   
+   
+    break;
+  
+
+  default:
+    // Handle the default case if needed
+    break;
+}
+
+
+
+const catStyle = {
+  transform: transformValue,
+  animationDuration: animationDuration,
+};
+
   return (
-    <svg
+    <>
+      
+<svg
+      style={catStyle}
       xmlns="http://www.w3.org/2000/svg"
       width="95.17898101806641"
       height="100.04156036376953"
@@ -180,5 +230,8 @@ export default function CatSprite() {
         </g>
       </g>
     </svg>
+
+    </>
+    
   );
 }
