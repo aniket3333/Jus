@@ -7,7 +7,7 @@ export default function CatSprite({ step }) {
   const message = useSelector((state) => state.message);
   const aniket1 = useSelector((state) => state.currentStep);
   
-  console.log('hghg',aniket1)
+  console.log('currentstep',aniket1)
  
 
 let transformValue = "";
